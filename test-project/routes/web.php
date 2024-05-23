@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +28,6 @@ Route::get('language/{locale}', function ($locale) {
 
     return redirect()->back();
 });
+
+Route::get('/admin_page', [AdminController::class, 'showUsers']);
+Route::post('/admin_maker', [AdminController::class, 'maker']);
